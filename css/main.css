@@ -2,7 +2,7 @@ body{
     display: inline-block;
     align-content: center;
     background-color: antiquewhite;
-    background: url("google-newtab/img/mountain.jpg") fixed;
+    /* background: url("google-newtab/img/mountain.jpg") fixed; */
 }
 h1, h2{
     align-content: center;
