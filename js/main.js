@@ -82,6 +82,16 @@ function setName(e) {
     };
 };
 
+
+//get message
+function getMessage() {
+    if (localStorage.getItem('message') === null) {
+        message.textContent = '[enter focus]';
+    } else {
+        message.textContent = localStorage.getItem('message');
+    }
+}
+
 function setMessage(e) {
     if (e.type === "keypress") {
         if (e.which == 13 || e.keyCode == 13) {
@@ -90,14 +100,6 @@ function setMessage(e) {
         }
     } else {
         localStorage.setItem('message', e.target.innerText);
-    }
-}
-//get message
-function getMessage() {
-    if (localStorage.getItem('message') === null) {
-        message.textContent = '[enter focus]';
-    } else {
-        message.textContent = localStorage.getItem('message');
     }
 }
 
