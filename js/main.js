@@ -24,7 +24,7 @@ const dataSecond = document.querySelector('[data-second-hand]')
 const greetings = document.querySelector('[data-greeting]');
 const name = document.querySelector('[data-name]')
 const message = document.querySelector('[data-message]');
-console.log(greetings);
+
 
 function setClock() {
     var currentDate = new Date();
@@ -41,7 +41,75 @@ function setRotation(element, rotationRatio) {
     element.style.setProperty('--rotation', rotationRatio * 360)
 }
 
-function setBackImage() {
+function setBackImage(n) {
+    let today = new Date();
+    let hour = today.getHours();
 
+    if (hour < 12) {
+        //morning
+        document.body.style.backgroundImage = "url(./img/morning.jpg')";
+        greetings.textContent = 'Good Morning'
+    } else if (hour < 18) {
+        //afternoon
+        document.body.style.backgroundImage = "url('./img/afternoon.jpg')";
+        greetings.textContent = 'Good Afternoon'
+    } else {
+        //evening
+        document.body.style.backgroundImage = "url('./img/night.jpg')";
+        greetings.textContent = 'Good Evening';
+        document.body.style.color = 'white';
+    }
 }
+//get name
+function getName() {
+    if (localStorage.getItem('name') === null) {
+        name.textContent = '[enter name]'
+    } else {
+        name.textContent = localStorage.getItem('name');
+    }
+}
+
+function setName(e) {
+    if (e.type === 'keypress') {
+        //make sure ENTER  is pressed
+        if (e.which == 13 || e.keyCode == 13) {
+            //13 == key code ENTER || since is deprecated we use both which and keycode for browsers
+            localStorage.setItem('name', e.target.innerText);
+            name.blur();
+        }
+    } else {
+        localStorage.setItem('name', e.target.innerText); //we use the target prop to target specific item name
+    };
+};
+
+function setMessage(e) {
+    if (e.type === "keypress") {
+        if (e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('message', e.target.innerText);
+            message.blur();
+        }
+    } else {
+        localStorage.setItem('message', e.target.innerText);
+    }
+}
+//get message
+function getMessage() {
+    if (localStorage.getItem('message') === null) {
+        message.textContent = '[enter focus]';
+    } else {
+        message.textContent = localStorage.getItem('message');
+    }
+}
+
+//adding event listeners
+name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
+message.addEventListener('keypress', setMessage);
+message.addEventListener('blur', setMessage);
+
 setClock();
+setBackImage();
+getName();
+getMessage();
+setName();
+setMessage();
