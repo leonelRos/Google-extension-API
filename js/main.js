@@ -57,7 +57,7 @@ function setBackImage(n) {
         //evening
         document.body.style.backgroundImage = "url('./img/night.jpg')";
         greetings.textContent = 'Good Evening';
-        document.body.style.color = 'white';
+        document.body.style.color = 'antiquewhite';
     }
 }
 //get name
@@ -70,7 +70,7 @@ function getName() {
 }
 
 function setName(e) {
-    if (e.type === 'keypress') {
+    if (e.type === "keypress") {
         //make sure ENTER  is pressed
         if (e.which == 13 || e.keyCode == 13) {
             //13 == key code ENTER || since is deprecated we use both which and keycode for browsers

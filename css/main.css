@@ -1,17 +1,38 @@
-body {
-  display: inline-block;
-  align-content: center;
-  background-color: antiquewhite;
-  /* background: url("google-newtab/img/mountain.jpg") fixed; */
-  color: black;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  color: rgb(5, 14, 4);
+  font-family: 'Pacifico', cursive;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Bangers', cursive;
+  font-weight: 200px;
+  font-size: 25px;
+}
+
 .body-part {
   display: inline-block;
 }
+
 h1,
 h2 {
   align-content: center;
 }
+
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
 .txt {
   /* display: flex;
     justify-content: center; */
@@ -21,7 +42,7 @@ h2 {
 .clock {
   width: 300px;
   height: 300px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(224, 218, 218, 0.897);
   border-radius: 50%;
   border: 2px solid black;
   position: relative;
@@ -35,38 +56,49 @@ h2 {
   text-align: center;
   transform: rotate(var(--rotation));
   font-size: 1.5rem;
+  /* color: ; */
 }
 
 .clock .number1 {
   --rotation: 30deg;
 }
+
 .clock .number2 {
   --rotation: 60deg;
 }
+
 .clock .number3 {
   --rotation: 90deg;
 }
+
 .clock .number4 {
   --rotation: 120deg;
 }
+
 .clock .number5 {
   --rotation: 150deg;
 }
+
 .clock .number6 {
   --rotation: 180deg;
 }
+
 .clock .number7 {
   --rotation: 210deg;
 }
+
 .clock .number8 {
   --rotation: 240deg;
 }
+
 .clock .number9 {
   --rotation: 270deg;
 }
+
 .clock .number10 {
   --rotation: 300deg;
 }
+
 .clock .number11 {
   --rotation: 330deg;
 }
