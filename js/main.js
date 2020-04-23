@@ -63,7 +63,7 @@ function setBackImage(n) {
 //get name
 function getName() {
     if (localStorage.getItem('name') === null) {
-        name.textContent = '[enter name]'
+        name.textContent = '____'
     } else {
         name.textContent = localStorage.getItem('name');
     }
@@ -86,7 +86,7 @@ function setName(e) {
 //get message
 function getMessage() {
     if (localStorage.getItem('message') === null) {
-        message.textContent = '[enter focus]';
+        message.textContent = '____';
     } else {
         message.textContent = localStorage.getItem('message');
     }
