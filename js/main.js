@@ -21,6 +21,10 @@ setInterval(setClock, 1000);
 const dataHour = document.querySelector('[data-hour-hand]')
 const dataMinute = document.querySelector('[data-minute-hand]')
 const dataSecond = document.querySelector('[data-second-hand]')
+const greetings = document.querySelector('[data-greeting]');
+const name = document.querySelector('[data-name]')
+const message = document.querySelector('[data-message]');
+console.log(greetings);
 
 function setClock() {
     var currentDate = new Date();
