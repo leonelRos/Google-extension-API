@@ -47,16 +47,17 @@ function setBackImage(n) {
 
     if (hour < 12) {
         //morning
-        document.body.style.backgroundImage = "url('./img/morning.jpg')";
+        document.body.style.backgroundImage = "url('./img/morning-1.jpg')";
         greetings.textContent = 'Good Morning'
     } else if (hour < 18) {
         //afternoon
-        document.body.style.backgroundImage = "url('./img/afternoon.jpg')";
+        document.body.style.backgroundImage = "url('./img/afternoon-1.jpg')";
         greetings.textContent = 'Good Afternoon';
         document.body.style.color = "aliceblue"
     } else {
         //evening
-        document.body.style.backgroundImage = "url('./img/night.jpg')";
+        document.body.style.backgroundImage = "url('./img/night-2.jpeg')";
+        // document.body.style.backgroundImage = "url('./img/afternoon-1.jpg')";
         greetings.textContent = 'Good Evening';
         document.body.style.color = 'antiquewhite';
     }
