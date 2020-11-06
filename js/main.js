@@ -27,7 +27,7 @@ const notiWeather = document.querySelector(".notification");
 
 let weather = {};
 weather.temperature = {
-  unit: "celcius",
+  unit: "celsius",
 };
 
 let KELVIN = 273;

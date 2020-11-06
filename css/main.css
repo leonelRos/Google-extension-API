@@ -151,11 +151,16 @@ h2 {
 }
 
 .container {
-  width: 300px;
+  width: 200px;
   background-color: #fff;
   display: block;
   margin: 0 auto;
   border-radius: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 17px;
   opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+p {
+  color: #000000;
 }
