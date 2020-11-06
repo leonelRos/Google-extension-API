@@ -12,9 +12,9 @@ body {
   text-align: center;
   align-content: center;
   color: rgb(5, 14, 4);
-  font-family: 'Pacifico', cursive;
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Bangers', cursive;
+  font-family: "Pacifico", cursive;
+  font-family: "Roboto", sans-serif;
+  font-family: "Bangers", cursive;
   font-weight: 200px;
   font-size: 25px;
   padding: 89px;
@@ -148,4 +148,14 @@ h2 {
   width: 10px;
   height: 35%;
   background-color: black;
+}
+
+.container {
+  width: 300px;
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  opacity: 0.7;
 }
