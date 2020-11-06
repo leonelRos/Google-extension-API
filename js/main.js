@@ -41,8 +41,7 @@ if ("geolocation" in navigator) {
   notiWeather.innerHTML = "<p>Browser does not support geolocation</p> ";
 }
 
-//check user location64f8c4f70c4714abdec8a659fded47eb
-
+//check user location
 function setPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -51,21 +50,23 @@ function setPosition(position) {
 }
 
 //if there is an issue with geolocation service
-
 function showError(error) {
   notiWeather.style.display = "block";
   notiWeather.innerHTML = `<p> ${error.message}</p>`;
 }
 
+//getting the data from API
 function getWeather(latitude, longitude) {
   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
+  //using fetch with promises
   fetch(api)
     .then(function (response) {
       let data = response.json();
       return data;
     })
     .then(function (data) {
+      //calling parameters in the API
       weather.temperature.value = Math.floor(data.main.temp - KELVIN);
       weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
@@ -80,16 +81,17 @@ function getWeather(latitude, longitude) {
 //display weather to UI
 function displayWeather() {
   iconWeather.innerHTML = `<img src="/icons/${weather.iconId}.png"/>`;
-  tempWeather.innerHTML = `${weather.temperature.value}"<span>C</span>`;
+  tempWeather.innerHTML = `${weather.temperature.value}°<span>C</span>`;
   descWeather.innerHTML = weather.description;
   locationWeather.innerHTML = `${weather.city}, ${weather.country}`;
 }
 
 // convert C to F
 function celciusToFahrenheit(temperature) {
-  return (temperature * 9) / 5 + 32;
+  return (temperature * 9) / 5 + 32; //this is the formula to convert
 }
 
+//onclick siwtch from celsius to fahrenheit
 tempWeather.addEventListener("click", function () {
   if (weather.temperature.value === undefined) return;
 
@@ -97,10 +99,10 @@ tempWeather.addEventListener("click", function () {
     let fahrenheit = celciusToFahrenheit(weather.temperature.value);
     fahrenheit = Math.floor(fahrenheit);
 
-    tempWeather.innerHTML = `${fahrenheit}"<span>F</span>`;
+    tempWeather.innerHTML = `${fahrenheit}°<span>F</span>`;
     weather.temperature.unit = "fahrenheit";
   } else {
-    tempWeather.innerHTML = `${weather.temperature.value}"<span>C</span>`;
+    tempWeather.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     weather.temperature.unit = "celsius";
   }
 });
