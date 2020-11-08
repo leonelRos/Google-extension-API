@@ -207,6 +207,6 @@ message.addEventListener("blur", setMessage);
 setClock();
 setBackImage();
 getName();
-setName();
 getMessage();
+setName();
 setMessage();
