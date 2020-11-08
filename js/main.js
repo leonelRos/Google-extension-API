@@ -27,7 +27,8 @@ const notiWeather = document.querySelector(".notification");
 
 let weather = {};
 weather.temperature = {
-  unit: "celsius",
+  // unit: "celsius",
+  unit: "fahrenheit",
 };
 
 let KELVIN = 273; //(K − 273.15) × 9/5 + 32 = °F.
@@ -69,7 +70,9 @@ function getWeather(latitude, longitude) {
     })
     .then(function (data) {
       //calling parameters in the API
-      weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+      weather.temperature.value = Math.floor(
+        ((data.main.temp - KELVIN) * 9) / 5 + 32
+      ); //(K − 273.15) × 9/5 + 32 = °F.
       weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
       weather.city = data.name;
@@ -83,29 +86,29 @@ function getWeather(latitude, longitude) {
 //display weather to UI
 function displayWeather() {
   iconWeather.innerHTML = `<img src="/icons/${weather.iconId}.png"/>`;
-  tempWeather.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+  tempWeather.innerHTML = `${weather.temperature.value}°<span>F</span>`;
   descWeather.innerHTML = weather.description;
   locationWeather.innerHTML = `${weather.city}, ${weather.country}`;
 }
 
-// convert C to F
-function celciusToFahrenheit(temperature) {
-  return (temperature * 9) / 5 + 32; //this is the formula to convert celsius to fahrenheit
+// convert F to C
+function fahrenheitToCelsius(temperature) {
+  return ((temperature - 32) * 5) / 9; //this is the formula to convert celsius to fahrenheit  //(°F – 32) × 5/9
 }
 
 //onclick siwtch from celsius to fahrenheit
 tempWeather.addEventListener("click", function () {
   if (weather.temperature.value === undefined) return;
 
-  if (weather.temperature.unit == "celsius") {
-    let fahrenheit = celciusToFahrenheit(weather.temperature.value);
-    fahrenheit = Math.floor(fahrenheit);
+  if (weather.temperature.unit == "fahrenheit") {
+    let celsius = fahrenheitToCelsius(weather.temperature.value);
+    celsius = Math.floor(celsius);
 
-    tempWeather.innerHTML = `${fahrenheit}°<span>F</span>`;
-    weather.temperature.unit = "fahrenheit";
-  } else {
-    tempWeather.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+    tempWeather.innerHTML = `${celsius}°<span>C</span>`;
     weather.temperature.unit = "celsius";
+  } else {
+    tempWeather.innerHTML = `${weather.temperature.value}°<span>F</span>`;
+    weather.temperature.unit = "fahrenheit";
   }
 });
 
