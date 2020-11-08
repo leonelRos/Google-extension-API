@@ -27,7 +27,6 @@ const notiWeather = document.querySelector(".notification");
 
 let weather = {};
 weather.temperature = {
-  // unit: "celsius",
   unit: "fahrenheit",
 };
 
@@ -59,8 +58,6 @@ function showError(error) {
 //getting the data from API
 function getWeather(latitude, longitude) {
   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
-
-  console.log(api);
 
   //using fetch with promises
   fetch(api)
@@ -96,7 +93,7 @@ function fahrenheitToCelsius(temperature) {
   return ((temperature - 32) * 5) / 9; //this is the formula to convert celsius to fahrenheit  //(°F – 32) × 5/9
 }
 
-//onclick siwtch from celsius to fahrenheit
+//onclick siwtch from fahrenheit to celsius
 tempWeather.addEventListener("click", function () {
   if (weather.temperature.value === undefined) return;
 
@@ -162,7 +159,7 @@ function setBackImage(n) {
 //get name
 function getName() {
   if (localStorage.getItem("name") === null) {
-    name.textContent = "____";
+    name.textContent = "___";
   } else {
     name.textContent = localStorage.getItem("name");
   }
@@ -184,7 +181,7 @@ function setName(e) {
 //get message
 function getMessage() {
   if (localStorage.getItem("message") === null) {
-    message.textContent = "____";
+    message.textContent = "___";
   } else {
     message.textContent = localStorage.getItem("message");
   }
@@ -210,6 +207,6 @@ message.addEventListener("blur", setMessage);
 setClock();
 setBackImage();
 getName();
-getMessage();
 setName();
+getMessage();
 setMessage();
