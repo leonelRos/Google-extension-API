@@ -30,7 +30,7 @@ weather.temperature = {
   unit: "celsius",
 };
 
-let KELVIN = 273;
+let KELVIN = 273; //(K − 273.15) × 9/5 + 32 = °F.
 
 let key = "64f8c4f70c4714abdec8a659fded47eb";
 //check user browser location
