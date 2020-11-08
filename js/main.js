@@ -59,6 +59,8 @@ function showError(error) {
 function getWeather(latitude, longitude) {
   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
+  console.log(api);
+
   //using fetch with promises
   fetch(api)
     .then(function (response) {
@@ -88,7 +90,7 @@ function displayWeather() {
 
 // convert C to F
 function celciusToFahrenheit(temperature) {
-  return (temperature * 9) / 5 + 32; //this is the formula to convert
+  return (temperature * 9) / 5 + 32; //this is the formula to convert celsius to fahrenheit
 }
 
 //onclick siwtch from celsius to fahrenheit
