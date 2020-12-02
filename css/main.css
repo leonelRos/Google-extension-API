@@ -18,6 +18,7 @@ body {
   font-weight: 200px;
   font-size: 25px;
   padding: 33px;
+  background-size: contain;
 }
 
 .body-part {
