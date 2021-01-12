@@ -19,6 +19,7 @@
 /*HERE IS THE CODE FOR THE WEATHER WIDGET
  */
 
+/*tslint:disabled*/
 const iconWeather = document.querySelector(".weather-icon");
 const tempWeather = document.querySelector(".temperature-value p");
 const descWeather = document.querySelector(".temperature-description p ");
@@ -200,13 +201,13 @@ function setMessage(e) {
 
 //adding event listeners
 name.addEventListener("keypress", setName);
-name.addEventListener("blur", setName);
 message.addEventListener("keypress", setMessage);
+name.addEventListener("blur", setName);
 message.addEventListener("blur", setMessage);
 
 setClock();
 setBackImage();
 getName();
-getMessage();
 setName();
+getMessage();
 setMessage();
