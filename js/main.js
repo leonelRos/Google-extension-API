@@ -151,7 +151,7 @@ function setBackImage(n) {
     document.body.style.color = "aliceblue";
   } else {
     //evening
-    document.body.style.backgroundImage = "url('./img/night-2.jpeg')";
+    document.body.style.backgroundImage = "url('./img/hamiltonlk.jpeg')"; 
     // document.body.style.backgroundImage = "url('./img/afternoon-1.jpg')";
     greetings.textContent = "Good Evening";
     document.body.style.color = "antiquewhite";
