@@ -167,6 +167,8 @@ function getName() {
 }
 
 function setName(e) {
+  if(!e) return;
+
   if (e.type === "keypress") {
     //make sure ENTER  is pressed
     if (e.which == 13 || e.keyCode == 13) {
@@ -189,6 +191,8 @@ function getMessage() {
 }
 
 function setMessage(e) {
+if(!e) return;
+
   if (e.type === "keypress") {
     if (e.which == 13 || e.keyCode == 13) {
       localStorage.setItem("message", e.target.innerText);
